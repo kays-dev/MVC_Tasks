@@ -22,4 +22,6 @@
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
 
+<a href="?" class="btn btn-secondary">Retour à la liste</a>
+
 <?php require_once __DIR__ . '/templates/footer.php'; 

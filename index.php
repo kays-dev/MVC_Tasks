@@ -2,7 +2,6 @@
 
 require_once __DIR__ . '/controllers/TaskController.php';
 
-$taskRepo = new TaskRepository();
 $taskControl = new TaskController() ;
 
 $action = $_GET['action'] ?? 'index';
@@ -20,6 +19,15 @@ switch ($action){
         break;
     case 'store':
         $taskControl->store();
+        break;
+    case 'edit':
+        $taskControl->edit($id);
+        break;
+    case 'update':
+        $taskControl->update();
+        break;
+    case 'delete':
+        $taskControl->delete($id);
         break;
     default:
         require_once __DIR__ . "/views/404.php";

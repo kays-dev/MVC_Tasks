@@ -10,6 +10,7 @@
             <th>Description</th>
             <th>Statut</th>
             <th>Créé le</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,11 @@
                 <td><?= $task->getDescription(); ?></td>
                 <td><?= $task->getStatus(); ?></td>
                 <td><?= $task->getCreatedAt() ?></td>
+                <td>
+                    <a href="?action=view&id=<?= $task->getId() ?>" class="btn btn-primary btn-sm">👀</a>
+                    <a href="?action=edit&id=<?= $task->getId() ?>" class="btn btn-warning btn-sm">✏️</a>
+                    <a onclick="return confirm('T’es sûr ?');" href="?action=delete&id=<?= $task->getId() ?>" class="btn btn-dark btn-sm">❌</a>
+                </td>
 
             </tr>
 
