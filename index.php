@@ -1,10 +1,17 @@
 <?php
 
-require_once __DIR__ . '/models/Task.php';
 require_once __DIR__ . '/models/repositories/TaskRepo.php';
 
-$taskRepository = new TaskRepository();
+$taskRepo = new TaskRepository();
 
-$tasks = $taskRepository->getTasks();
+if (isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id'])) {
+    
+    $task = $taskRepo->getTask($_GET['id']);
+    require_once __DIR__ . '/views/taskView.php';
 
-require_once __DIR__ . '/views/home.php';
+} else {
+    
+    $tasks = $taskRepo->getTasks();
+    require_once __DIR__ . '/views/home.php';    
+    
+}
