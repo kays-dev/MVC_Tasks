@@ -30,8 +30,7 @@ switch ($action){
         $taskControl->delete($id);
         break;
     default:
-        require_once __DIR__ . "/views/404.php";
-        http_response_code(404);
+        $taskControl->forbidden();
         break;
 }
 
