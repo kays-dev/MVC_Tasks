@@ -5,6 +5,9 @@ require_once __DIR__ . '/models/Task.php';
 
 $taskRepository = new TaskRepository();
 
-$taskRepository->getTasks();
+var_dump($taskRepository->getTasks());
+var_dump($taskRepository->getTask(2));
+
+
 
 ?>
