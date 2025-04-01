@@ -29,13 +29,13 @@ class Task
     {
         return $this->status;
     }
-    public function getCreatedAt(): DateTime
+    public function getCreatedAt(): string
     {
-        return $this->createdAt;
+        return $this->createdAt->format('Y-m-d H:i:s');
     }
-    public function getUpdatedAt(): DateTime
+    public function getUpdatedAt(): string
     {
-        return $this->updatedAt;
+        return $this->updatedAt->format('Y-m-d H:i:s');
     }
 
     public function setId(int $id)
@@ -44,15 +44,15 @@ class Task
     }
     public function setTitle(string $title)
     {
-        $this->title = $title;
+        $this->title = htmlspecialchars($title);
     }
     public function setDescription(string $description)
     {
-        $this->description = $description;
+        $this->description = htmlspecialchars($description);
     }
     public function setStatus(string $status)
     {
-        $this->status = $status;
+        $this->status = htmlspecialchars($status);
     }
     public function setCreatedAt(DateTime $createdAt)
     {
