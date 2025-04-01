@@ -1,17 +1,32 @@
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task dashboard</title>
-</head>
-<body>
-    <h1>Task management</h1>
+<?php require_once __DIR__ . '/templates/header.php'; ?>
+        
+<h2 class="mb-4">📋 Liste des tâches</h2>
 
-    <?php
-    foreach($tasks as $task){
-        echo '<h2>' . $task->getTitle() . '<h2>';
-    }
-    ?>
-    
-</body>
-</html>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Statut</th>
+            <th>Créé le</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($tasks as $task): ?>
+
+            <tr>
+
+                <td><?= $task->getId(); ?></td>
+                <td><a href="?action=view&id=<?= $task->getId() ?>"><?= $task->getTitle(); ?></a></td>
+                <td><?= $task->getDescription(); ?></td>
+                <td><?= $task->getStatus(); ?></td>
+                <td><?= $task->getCreatedAt() ?></td>
+
+            </tr>
+
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php require_once __DIR__ . '/templates/footer.php';
